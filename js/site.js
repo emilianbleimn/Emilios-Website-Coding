@@ -5,6 +5,17 @@
 (function () {
   "use strict";
 
+  /* ----------  Immer oben starten  ----------
+     Verhindert, dass mobile Browser beim erneuten Öffnen oder Neuladen eine
+     alte Scroll-Position wiederherstellen. So landet man beim Öffnen der
+     Website immer am Seitenanfang (auf der Startseite) und nicht mitten in
+     einem anderen Abschnitt. In-Page-Anker (#...) bleiben davon unberührt. */
+  if ("scrollRestoration" in history) { history.scrollRestoration = "manual"; }
+  function ensureTop() { if (!location.hash) { window.scrollTo(0, 0); } }
+  ensureTop();
+  window.addEventListener("pageshow", ensureTop);
+  window.addEventListener("load", ensureTop);
+
   /* ----------  Stammdaten (zentral pflegbar)  ---------- */
   var COMPANY = {
     name: "M&M Unternehmensgruppe",

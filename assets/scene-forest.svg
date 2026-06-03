@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Nebelverhangener Nadelwald im Morgenlicht">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#15301f"/>
+      <stop offset="0.45" stop-color="#1d4530"/>
+      <stop offset="1" stop-color="#0c1f15"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.7" cy="0.18" r="0.5">
+      <stop offset="0" stop-color="#bfe6cf" stop-opacity="0.55"/>
+      <stop offset="0.4" stop-color="#74c69d" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#74c69d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfe6cf" stop-opacity="0"/>
+      <stop offset="1" stop-color="#cdeedb" stop-opacity="0.16"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#sun)"/>
+
+  <!-- light rays -->
+  <g opacity="0.18" fill="#d7f0e2">
+    <polygon points="1120,0 1180,0 980,900 880,900"/>
+    <polygon points="1220,0 1250,0 1120,900 1060,900"/>
+    <polygon points="1000,0 1040,0 820,900 740,900"/>
+  </g>
+
+  <!-- far ridge -->
+  <path d="M0 520 Q 260 470 520 510 T 1040 500 T 1600 520 V900 H0 Z" fill="#1a3c29" opacity="0.55"/>
+  <!-- far tree row -->
+  <g fill="#1a3c29" opacity="0.6">
+    <g transform="translate(0,470)">
+      <path d="M60 60 l16 -60 16 60z M58 40 l18 -50 18 50z"/>
+      <path d="M180 65 l15 -58 15 58z M178 46 l17 -48 17 48z"/>
+      <path d="M320 60 l16 -62 16 62z"/>
+      <path d="M470 66 l15 -55 15 55z"/>
+      <path d="M650 60 l17 -64 17 64z"/>
+      <path d="M820 66 l15 -56 15 56z"/>
+      <path d="M980 62 l16 -60 16 60z"/>
+      <path d="M1160 66 l15 -58 15 58z"/>
+      <path d="M1330 60 l17 -62 17 62z"/>
+      <path d="M1500 66 l15 -56 15 56z"/>
+    </g>
+  </g>
+
+  <!-- mid forest -->
+  <path d="M0 600 Q 200 560 420 590 T 860 585 T 1300 590 T 1600 600 V900 H0 Z" fill="#16331f"/>
+  <g fill="#13301d">
+    <!-- conifer silhouettes -->
+    <path d="M120 600 l40 -150 40 150z M120 560 l40 -120 40 120z M120 530 l40 -95 40 95z"/>
+    <path d="M300 600 l34 -130 34 130z M300 566 l34 -105 34 105z M300 540 l34 -82 34 82z"/>
+    <path d="M520 600 l44 -165 44 165z M520 556 l44 -130 44 130z M520 522 l44 -100 44 100z"/>
+    <path d="M760 600 l36 -140 36 140z M760 562 l36 -110 36 110z M760 534 l36 -85 36 85z"/>
+    <path d="M980 600 l42 -158 42 158z M980 558 l42 -124 42 124z M980 526 l42 -96 42 96z"/>
+    <path d="M1220 600 l34 -128 34 128z M1220 568 l34 -102 34 102z M1220 542 l34 -80 34 80z"/>
+    <path d="M1430 600 l40 -150 40 150z M1430 562 l40 -118 40 118z M1430 530 l40 -92 40 92z"/>
+  </g>
+
+  <!-- mist band -->
+  <rect x="0" y="560" width="1600" height="180" fill="url(#mist)"/>
+
+  <!-- foreground hill -->
+  <path d="M0 720 Q 300 670 640 710 T 1280 700 T 1600 720 V900 H0 Z" fill="#0f2719"/>
+
+  <!-- foreground big conifers -->
+  <g fill="#0a1d12">
+    <path d="M150 760 l70 -260 70 260z M150 700 l70 -210 70 210z M150 650 l70 -160 70 160z M205 760 h30 v90 h-30z"/>
+    <path d="M560 770 l60 -230 60 230z M560 716 l60 -185 60 185z M560 672 l60 -140 60 140z M605 770 h30 v80 h-30z"/>
+    <path d="M1080 765 l66 -250 66 250z M1080 708 l66 -200 66 200z M1080 660 l66 -152 66 152z M1130 765 h32 v85 h-32z"/>
+    <path d="M1420 770 l58 -220 58 220z M1420 720 l58 -178 58 178z M1420 678 l58 -135 58 135z M1463 770 h28 v80 h-28z"/>
+  </g>
+
+  <rect width="1600" height="900" fill="#0c1f15" opacity="0.12"/>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Forstteam bei der Arbeit im Wald">
+  <defs>
+    <linearGradient id="tsky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d3326"/>
+      <stop offset="0.5" stop-color="#1b4332"/>
+      <stop offset="1" stop-color="#0c1f15"/>
+    </linearGradient>
+    <radialGradient id="tglow" cx="0.5" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#cdeedb" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#cdeedb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#tsky)"/>
+  <rect width="1600" height="900" fill="url(#tglow)"/>
+
+  <!-- light rays -->
+  <g opacity="0.16" fill="#d7f0e2">
+    <polygon points="760,0 820,0 640,900 540,900"/>
+    <polygon points="900,0 940,0 820,900 760,900"/>
+  </g>
+
+  <!-- tall trunks -->
+  <g fill="#0e2417">
+    <rect x="120" y="0" width="46" height="780"/>
+    <rect x="420" y="0" width="38" height="780"/>
+    <rect x="980" y="0" width="52" height="780"/>
+    <rect x="1320" y="0" width="42" height="780"/>
+  </g>
+  <g fill="#16331f" opacity="0.6">
+    <rect x="280" y="0" width="28" height="780"/>
+    <rect x="700" y="0" width="32" height="780"/>
+    <rect x="1180" y="0" width="30" height="780"/>
+  </g>
+
+  <!-- canopy hint top -->
+  <g fill="#13301d" opacity="0.85">
+    <ellipse cx="200" cy="60" rx="280" ry="120"/>
+    <ellipse cx="800" cy="40" rx="340" ry="120"/>
+    <ellipse cx="1400" cy="60" rx="280" ry="120"/>
+  </g>
+
+  <!-- ground -->
+  <path d="M0 700 Q 400 670 800 695 T 1600 700 V900 H0 Z" fill="#0c2014"/>
+
+  <!-- two worker silhouettes -->
+  <g fill="#091a10">
+    <!-- worker 1 -->
+    <g transform="translate(560,470)">
+      <circle cx="40" cy="40" r="26"/>            <!-- helmet -->
+      <path d="M14 40 h52 v6 h-52z" fill="#52b788" opacity="0.6"/> <!-- helmet brim accent -->
+      <path d="M20 70 q20 -14 40 0 l8 130 -18 0 -10 -86 -10 86 -18 0z"/> <!-- body+legs -->
+      <path d="M22 86 l-30 70 14 8 30 -64z"/>      <!-- arm -->
+    </g>
+    <!-- worker 2 -->
+    <g transform="translate(900,500)">
+      <circle cx="36" cy="36" r="24"/>
+      <path d="M12 36 h48 v6 h-48z" fill="#52b788" opacity="0.6"/>
+      <path d="M16 64 q20 -12 38 0 l6 118 -16 0 -9 -78 -9 78 -16 0z"/>
+      <path d="M52 80 l34 56 -12 8 -34 -50z"/>
+      <!-- chainsaw hint -->
+      <rect x="78" y="120" width="60" height="14" rx="4" transform="rotate(18 78 120)"/>
+    </g>
+  </g>
+
+  <rect width="1600" height="900" fill="#0c1f15" opacity="0.16"/>
+</svg>

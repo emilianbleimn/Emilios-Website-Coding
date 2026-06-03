@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stapel von Materialcontainern auf einem Lagerplatz">
+  <defs>
+    <linearGradient id="csky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#242a27"/>
+      <stop offset="0.55" stop-color="#1a3527"/>
+      <stop offset="1" stop-color="#0e1f15"/>
+    </linearGradient>
+    <radialGradient id="cglow" cx="0.6" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#74c69d" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#74c69d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#csky)"/>
+  <rect width="1600" height="900" fill="url(#cglow)"/>
+
+  <!-- distant tree line -->
+  <path d="M0 430 Q 300 400 640 420 T 1280 415 T 1600 430 V520 H0 Z" fill="#163320" opacity="0.7"/>
+
+  <!-- ground -->
+  <rect x="0" y="560" width="1600" height="340" fill="#16241a"/>
+  <rect x="0" y="556" width="1600" height="8" fill="#0a140d"/>
+
+  <!-- container helper: drawn inline -->
+  <!-- Row 1 (back) -->
+  <g opacity="0.92">
+    <g transform="translate(120,360)">
+      <rect width="360" height="160" rx="6" fill="#2d6a4f"/>
+      <g stroke="#1f4d38" stroke-width="3">
+        <line x1="30" y1="6" x2="30" y2="154"/><line x1="70" y1="6" x2="70" y2="154"/><line x1="110" y1="6" x2="110" y2="154"/><line x1="150" y1="6" x2="150" y2="154"/><line x1="190" y1="6" x2="190" y2="154"/><line x1="230" y1="6" x2="230" y2="154"/><line x1="270" y1="6" x2="270" y2="154"/><line x1="310" y1="6" x2="310" y2="154"/><line x1="340" y1="6" x2="340" y2="154"/>
+      </g>
+      <rect width="360" height="160" rx="6" fill="none" stroke="#1b4332" stroke-width="6"/>
+    </g>
+    <g transform="translate(520,360)">
+      <rect width="300" height="160" rx="6" fill="#3a403c"/>
+      <g stroke="#2a2f2c" stroke-width="3"><line x1="30" y1="6" x2="30" y2="154"/><line x1="70" y1="6" x2="70" y2="154"/><line x1="110" y1="6" x2="110" y2="154"/><line x1="150" y1="6" x2="150" y2="154"/><line x1="190" y1="6" x2="190" y2="154"/><line x1="230" y1="6" x2="230" y2="154"/><line x1="270" y1="6" x2="270" y2="154"/></g>
+      <rect width="300" height="160" rx="6" fill="none" stroke="#23272a" stroke-width="6"/>
+    </g>
+  </g>
+
+  <!-- Row 2 (front, larger) -->
+  <g>
+    <g transform="translate(220,540)">
+      <rect width="420" height="200" rx="7" fill="#235139"/>
+      <g stroke="#16361f" stroke-width="3.5"><line x1="36" y1="8" x2="36" y2="192"/><line x1="84" y1="8" x2="84" y2="192"/><line x1="132" y1="8" x2="132" y2="192"/><line x1="180" y1="8" x2="180" y2="192"/><line x1="228" y1="8" x2="228" y2="192"/><line x1="276" y1="8" x2="276" y2="192"/><line x1="324" y1="8" x2="324" y2="192"/><line x1="372" y1="8" x2="372" y2="192"/></g>
+      <rect x="180" y="40" width="120" height="120" rx="3" fill="#1b4332" stroke="#16361f" stroke-width="3"/>
+      <circle cx="190" cy="100" r="5" fill="#74c69d"/>
+      <rect width="420" height="200" rx="7" fill="none" stroke="#16361f" stroke-width="7"/>
+    </g>
+    <g transform="translate(680,540)">
+      <rect width="500" height="200" rx="7" fill="#2b302d"/>
+      <g stroke="#1c201e" stroke-width="3.5"><line x1="40" y1="8" x2="40" y2="192"/><line x1="90" y1="8" x2="90" y2="192"/><line x1="140" y1="8" x2="140" y2="192"/><line x1="190" y1="8" x2="190" y2="192"/><line x1="240" y1="8" x2="240" y2="192"/><line x1="290" y1="8" x2="290" y2="192"/><line x1="340" y1="8" x2="340" y2="192"/><line x1="390" y1="8" x2="390" y2="192"/><line x1="440" y1="8" x2="440" y2="192"/></g>
+      <rect x="180" y="36" width="140" height="128" rx="3" fill="#1c201e" stroke="#0e1110" stroke-width="3"/>
+      <circle cx="332" cy="100" r="5" fill="#74c69d"/>
+      <rect width="500" height="200" rx="7" fill="none" stroke="#1c201e" stroke-width="7"/>
+    </g>
+  </g>
+
+  <rect width="1600" height="900" fill="#0c1f15" opacity="0.12"/>
+</svg>

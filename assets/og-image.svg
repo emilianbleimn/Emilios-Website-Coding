@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="M&amp;M Unternehmensgruppe">
+  <defs>
+    <linearGradient id="og" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b4332"/>
+      <stop offset="0.55" stop-color="#122a1c"/>
+      <stop offset="1" stop-color="#0c1f15"/>
+    </linearGradient>
+    <radialGradient id="ogg" cx="0.8" cy="0.1" r="0.7">
+      <stop offset="0" stop-color="#52b788" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#52b788" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="oglogo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#52b788"/><stop offset="1" stop-color="#1b4332"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og)"/>
+  <rect width="1200" height="630" fill="url(#ogg)"/>
+
+  <!-- tree silhouettes -->
+  <g fill="#0a1d12" opacity="0.7">
+    <path d="M1000 630 l70 -260 70 260z M1000 575 l70 -210 70 210z M1000 525 l70 -160 70 160z"/>
+    <path d="M880 630 l50 -190 50 190z M880 588 l50 -150 50 150z"/>
+  </g>
+  <g fill="#0e2417" opacity="0.6">
+    <path d="M120 630 l54 -200 54 200z M120 585 l54 -160 54 160z"/>
+  </g>
+
+  <!-- logo -->
+  <g transform="translate(96,150)">
+    <rect width="120" height="120" rx="28" fill="url(#oglogo)"/>
+    <path d="M60 22 35 56h10l-15 22h22v22h16v-22h22l-15 -22h10z" fill="#fff"/>
+  </g>
+
+  <text x="240" y="210" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="76" font-weight="800" letter-spacing="-2">M&amp;M</text>
+  <text x="240" y="262" fill="#9fd9bd" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="6">UNTERNEHMENSGRUPPE</text>
+
+  <text x="96" y="380" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="48" font-weight="800" letter-spacing="-1">Ihr zertifizierter Partner für</text>
+  <text x="96" y="438" fill="#74c69d" font-family="Segoe UI, Arial, sans-serif" font-size="48" font-weight="800" letter-spacing="-1">Forst, Landschaftsbau &amp; Maschinen</text>
+
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="600" fill="#cdddd3">
+    <text x="96" y="520">RAL GGWL-zertifiziert</text>
+    <text x="430" y="520">•   Groß-Umstadt</text>
+    <text x="720" y="520">•   06078 9687991</text>
+  </g>
+</svg>

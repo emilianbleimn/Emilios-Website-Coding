@@ -16,11 +16,28 @@
   window.addEventListener("pageshow", ensureTop);
   window.addEventListener("load", ensureTop);
 
-  /* ----------  Logo-Vorschau beim Öffnen (einmal pro Sitzung)  ---------- */
+  /* ----------  Logo-Vorschau beim Öffnen & bei jedem Reload  ---------- */
+  // Erkennt, wie die Seite aufgerufen wurde (Reload, frisches Öffnen, Zurück/Vor).
+  function splashNavType() {
+    try {
+      var e = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+      if (e && e.type) return e.type;
+      if (performance.navigation) { var t = performance.navigation.type; return t === 1 ? "reload" : t === 2 ? "back_forward" : "navigate"; }
+    } catch (err) {}
+    return "navigate";
+  }
+  // Vorschau zeigen bei: Reload (immer) und frischem Öffnen der Seite.
+  // Nicht zeigen bei: internem Seitenwechsel (Klick auf Menü) & Zurück/Vor.
+  function shouldShowSplash() {
+    var t = splashNavType();
+    if (t === "reload") return true;
+    if (t === "back_forward") return false;
+    var ref = document.referrer || "";
+    return ref.indexOf(location.origin) !== 0;
+  }
   function initSplash() {
-    var KEY = "mm_splash_seen";
-    try { if (sessionStorage.getItem(KEY)) return; sessionStorage.setItem(KEY, "1"); } catch (e) {}
     if (!document.body) return;
+    if (!shouldShowSplash()) return;
     var logo = '<svg class="splash__logo" viewBox="0 0 48 48" aria-hidden="true">' +
       '<defs><linearGradient id="slg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#52b788"/><stop offset="1" stop-color="#1b4332"/></linearGradient></defs>' +
       '<rect width="48" height="48" rx="13" fill="url(#slg)"/>' +

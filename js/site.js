@@ -16,6 +16,69 @@
   window.addEventListener("pageshow", ensureTop);
   window.addEventListener("load", ensureTop);
 
+  /* ----------  Logo-Vorschau beim Öffnen (einmal pro Sitzung)  ---------- */
+  function initSplash() {
+    var KEY = "mm_splash_seen";
+    try { if (sessionStorage.getItem(KEY)) return; sessionStorage.setItem(KEY, "1"); } catch (e) {}
+    if (!document.body) return;
+    var logo = '<svg class="splash__logo" viewBox="0 0 48 48" aria-hidden="true">' +
+      '<defs><linearGradient id="slg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#52b788"/><stop offset="1" stop-color="#1b4332"/></linearGradient></defs>' +
+      '<rect width="48" height="48" rx="13" fill="url(#slg)"/>' +
+      '<path d="M24 8 14 22h4l-6 9h9v9h6v-9h9l-6-9h4z" fill="#fff" opacity=".97"/>' +
+      '<path d="M22 40h4v-9h-4z" fill="#0c1f15" opacity=".25"/></svg>';
+    var el = document.createElement("div");
+    el.className = "splash"; el.id = "splash"; el.setAttribute("role", "status");
+    el.setAttribute("aria-label", "M&M Unternehmensgruppe wird geladen");
+    el.innerHTML = '<div class="splash__inner">' + logo +
+      '<div class="splash__name">M&amp;M</div>' +
+      '<div class="splash__sub">Unternehmensgruppe</div>' +
+      '<div class="splash__bar"><span></span></div></div>';
+    document.body.appendChild(el);
+    document.documentElement.style.overflow = "hidden";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var hold = reduce ? 450 : 1200, done = false;
+    function close() {
+      if (done) return; done = true;
+      el.classList.add("is-hidden");
+      document.documentElement.style.overflow = "";
+      setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 650);
+    }
+    setTimeout(close, hold);
+    window.addEventListener("load", function () { setTimeout(close, hold); });
+  }
+  initSplash();
+
+  /* ----------  Hell-/Dunkel-Modus  ---------- */
+  var THEME_KEY = "mm_theme";
+  function preferredTheme() {
+    try { var t = localStorage.getItem(THEME_KEY); if (t === "dark" || t === "light") return t; } catch (e) {}
+    return (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+  }
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", t === "dark" ? "#0e1311" : "#1b4332");
+    var dark = t === "dark";
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(dark));
+      b.setAttribute("aria-label", dark ? "Zum hellen Modus wechseln" : "Zum dunklen Modus wechseln");
+      var ic = b.querySelector(".ti-icon"), tx = b.querySelector(".ti-text");
+      if (ic) ic.innerHTML = dark ? I.sun : I.moon;
+      if (tx) tx.textContent = dark ? "Heller Modus" : "Dunkler Modus";
+    });
+  }
+  function initTheme() {
+    applyTheme(preferredTheme());
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var cur = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+        var next = cur === "dark" ? "light" : "dark";
+        try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+        applyTheme(next);
+      });
+    });
+  }
+
   /* ----------  Stammdaten (zentral pflegbar)  ---------- */
   var COMPANY = {
     name: "M&M Unternehmensgruppe",
@@ -57,7 +120,9 @@
     instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>',
     sprout: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-9"/><path d="M12 13C12 9 9 7 4 7c0 5 3 6 8 6z"/><path d="M12 11c0-3 2.5-5 7-5 0 4-2.5 5-7 5z"/></svg>',
     handshake: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 12 4-4 4 2 3-2 4 2 3-2"/><path d="m11 10 2 2 3-2"/><path d="M3 12v4l5 4 3-3 3 3 5-4v-4"/></svg>',
-    award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg>'
+    award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg>',
+    sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M4.2 4.2 5.9 5.9M18.1 18.1l1.7 1.7M2 12h2.4M19.6 12H22M4.2 19.8 5.9 18.1M18.1 5.9l1.7-1.7"/></svg>',
+    moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z"/></svg>'
   };
 
   /* ----------  Navigation  ---------- */
@@ -112,6 +177,7 @@
         '<div class="header-actions">' +
           '<a class="header-phone" href="tel:' + COMPANY.phoneHref + '">' + I.phone + COMPANY.phone + '</a>' +
           '<a class="btn hide-mobile" href="kontakt.html">Angebot anfordern</a>' +
+          '<button class="theme-toggle" type="button" data-theme-toggle aria-label="Modus wechseln"><span class="ti-icon"></span></button>' +
           '<button class="burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>' +
         '</div>' +
       '</div>';
@@ -136,6 +202,7 @@
       '<div class="mobile-nav__cta">' +
         '<a class="btn btn--block" href="kontakt.html">Angebot anfordern</a>' +
         '<a class="btn btn--ghost btn--block" href="tel:' + COMPANY.phoneHref + '" style="color:#e6efe9;border-color:rgba(255,255,255,.25)">' + I.phone + COMPANY.phone + '</a>' +
+        '<button class="theme-toggle" type="button" data-theme-toggle aria-label="Modus wechseln"><span class="ti-icon"></span><span class="ti-text"></span></button>' +
       '</div>';
   }
 
@@ -400,6 +467,7 @@
   /* ----------  Boot  ---------- */
   function boot() {
     inject();
+    initTheme();
     initReveal();
     initCounters();
     initFaq();

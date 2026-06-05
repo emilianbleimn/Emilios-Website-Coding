@@ -11,6 +11,8 @@ Vermietung und Containerlösungen.
 - **Statische Multi-Page-Website** (HTML/CSS/Vanilla-JS) – ohne Build-Schritt, ohne externe Abhängigkeiten
 - **Schnell & DSGVO-freundlich**: eigene SVG-Grafiken/Icons statt externer Bild-CDNs, keine Tracker, keine externen Fonts
 - **Voll responsiv** & mobil optimiert, mit Scroll-Animationen (respektiert `prefers-reduced-motion`)
+- **Hell-/Dunkel-Modus** mit Umschalter im Header & Menü (wird gespeichert, folgt der Systemeinstellung, ohne Flackern)
+- **Logo-Vorschau (Splash)** beim Öffnen der Website – einmal pro Browser-Sitzung
 - **SEO**: pro Seite eigene Meta-Tags, Open Graph, JSON-LD (LocalBusiness, BreadcrumbList, FAQPage), `sitemap.xml`, `robots.txt`
 - **DSGVO-konformes Kontaktformular** (Pflichtfeld-Validierung, Einwilligung, Spam-Honeypot)
 - **Karte mit Zwei-Klick-Lösung** (lädt erst nach Einwilligung)

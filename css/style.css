@@ -39,6 +39,8 @@
   --text-soft: #4a534e;
   --accent: var(--green-500);
   --accent-bright: var(--green-400);
+  --accent-orange: #e3792b;
+  --accent-orange-soft: #f5a45a;
 
   /* Maße */
   --container: 1200px;
@@ -115,8 +117,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; font-weigh
   color: var(--green-600);
 }
 .section--dark .eyebrow, .section--green .eyebrow { color: var(--green-300); }
-.eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; border-radius: 2px; }
-.eyebrow--center::after { content: ""; width: 26px; height: 2px; background: currentColor; border-radius: 2px; }
+.eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--accent-orange); border-radius: 2px; }
+.eyebrow--center::after { content: ""; width: 26px; height: 2px; background: var(--accent-orange); border-radius: 2px; }
 
 h1, .h1 { font-size: clamp(2.2rem, 5.2vw, 4rem); }
 h2, .h2 { font-size: clamp(1.8rem, 3.8vw, 2.9rem); }
@@ -198,7 +200,7 @@ h3, .h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
 .nav { display: flex; align-items: center; gap: .3rem; }
 .nav__item { position: relative; }
 .nav__link {
-  display: inline-flex; align-items: center; gap: .35rem; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: .35rem; white-space: nowrap; position: relative;
   padding: .6rem .8rem; border-radius: var(--radius-pill);
   font-weight: 600; font-size: .94rem; color: rgba(255,255,255,.88);
   transition: color var(--t-fast), background var(--t-fast);
@@ -208,6 +210,7 @@ h3, .h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
 .site-header.is-scrolled .nav__link:hover { color: var(--green-700); background: rgba(45,106,79,.1); }
 .nav__link.is-active { color: #fff; }
 .site-header.is-scrolled .nav__link.is-active { color: var(--green-700); }
+.nav__link.is-active::after { content: ""; position: absolute; left: .8rem; right: .8rem; bottom: .3rem; height: 2px; border-radius: 2px; background: var(--accent-orange); }
 .nav__link[aria-expanded] .chev { width: .8em; height: .8em; transition: transform var(--t-fast); }
 .nav__item.has-menu:hover .chev, .nav__item:focus-within .chev { transform: rotate(180deg); }
 
@@ -296,7 +299,7 @@ body.menu-open .mobile-nav { transform: translateX(0); visibility: visible; }
   color: rgba(255,255,255,.7); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
 }
 .hero__scroll .mouse { width: 24px; height: 38px; border: 2px solid rgba(255,255,255,.55); border-radius: 14px; position: relative; }
-.hero__scroll .mouse::before { content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 7px; background: #fff; border-radius: 3px; animation: scrollwheel 1.6s var(--ease) infinite; }
+.hero__scroll .mouse::before { content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 4px; height: 7px; background: var(--accent-orange); border-radius: 3px; animation: scrollwheel 1.6s var(--ease) infinite; }
 @keyframes scrollwheel { 0% { opacity: 0; transform: translate(-50%, 0); } 30% { opacity: 1; } 80% { opacity: 0; transform: translate(-50%, 12px); } 100% { opacity: 0; } }
 
 /* Subpage hero (kompakter) */
@@ -360,7 +363,7 @@ body.menu-open .mobile-nav { transform: translateX(0); visibility: visible; }
 }
 .service-card::after {
   content: ""; position: absolute; inset: auto 0 0 0; height: 4px;
-  background: linear-gradient(90deg, var(--green-600), var(--green-400));
+  background: linear-gradient(90deg, var(--green-600), var(--accent-orange));
   transform: scaleX(0); transform-origin: left; transition: transform var(--t);
 }
 .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: transparent; }
@@ -423,9 +426,9 @@ body.menu-open .mobile-nav { transform: translateX(0); visibility: visible; }
 .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
 .stat { text-align: center; }
 .stat__num { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem,5vw,3.4rem); line-height: 1; letter-spacing: -.03em; background: linear-gradient(120deg,#fff,var(--green-300)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.section--green .stat__num, .section--dark .stat__num { background: linear-gradient(120deg,#fff,var(--green-300)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.section--green .stat__num, .section--dark .stat__num { background: linear-gradient(120deg,#fff,var(--accent-orange-soft)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .stat__label { margin-top: .5rem; font-size: .92rem; color: #c8d4cd; font-weight: 600; letter-spacing: .02em; }
-.section:not(.section--green):not(.section--dark) .stat__num { background: linear-gradient(120deg,var(--green-800),var(--green-500)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.section:not(.section--green):not(.section--dark) .stat__num { background: linear-gradient(120deg,var(--green-700),var(--accent-orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .section:not(.section--green):not(.section--dark) .stat__label { color: var(--text-soft); }
 
 /* ----------  Testimonials  ---------- */
@@ -723,7 +726,7 @@ body.menu-open .mobile-nav { transform: translateX(0); visibility: visible; }
 .splash__name { font-family: var(--font-display); font-weight: 800; font-size: 2.1rem; color: #fff; letter-spacing: -.02em; margin-top: 1rem; line-height: 1; }
 .splash__sub { font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; color: var(--green-300); font-weight: 700; margin-top: .45rem; }
 .splash__bar { margin-top: 1.5rem; width: 150px; height: 4px; border-radius: 4px; background: rgba(255,255,255,.16); overflow: hidden; }
-.splash__bar span { display: block; height: 100%; width: 42%; border-radius: 4px; background: linear-gradient(90deg, var(--green-400), var(--green-300)); animation: splashBar 1.15s var(--ease) infinite; }
+.splash__bar span { display: block; height: 100%; width: 42%; border-radius: 4px; background: linear-gradient(90deg, var(--green-400), var(--accent-orange)); animation: splashBar 1.15s var(--ease) infinite; }
 @keyframes splashIn { from { opacity: 0; transform: translateY(14px) scale(.95); } to { opacity: 1; transform: none; } }
 @keyframes splashPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.07); } }
 @keyframes splashBar { 0% { transform: translateX(-130%); } 100% { transform: translateX(330%); } }
